@@ -1,0 +1,229 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Merriweather&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Raleway&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap');
+
+
+:root {
+    --background: #F1F6F9;
+    --primary: #9BA4B5;
+    --secondary: #394867;
+    --accent: #212A3E;
+    --emphasis: #586168;
+    --font: #000;
+}
+
+:root {
+    --background: #FFF4E0;
+    --primary: #FFBF9B;
+    --secondary: #B46060;
+    --accent: #4D4D4D;
+    --emphasis: #152237;
+}
+
+* {
+    /* border: 1px dotted red; */
+    /* padding: 5px; */
+    /* font-family: 'Open Sans', sans-serif; */
+    font-family: 'Raleway', sans-serif;
+    /* font-family: 'Newsreader', serif; */
+}
+
+/* width */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: #1d1d1d; 
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #888; 
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #000; 
+}
+
+body, html {
+    height: 100%;
+    /* overflow-x: hidden; */
+    /* overflow-y: hidden; */
+}
+
+body {
+    margin: 0;
+    /* padding-right: 10%;
+    padding-left: 10%; */
+    
+    background: var(--background);
+}
+
+body div, body div * {
+    display: flex;
+}
+
+.header {
+    justify-content: center;
+    user-select: none;
+    color: white;
+    background-color: #000;
+    padding: 5px;
+}
+
+.logo {
+    font-family: 'Newsreader', serif;
+    justify-self: center;
+}
+
+.social_link {
+    text-decoration: none;
+    padding: 0;
+    margin-left: 5px;
+
+}
+
+.icons {
+    margin-left: auto;
+}
+
+.social_icons {
+    width: 20px;
+    filter: invert(1);
+}
+
+.navigation {
+    flex-direction: row;
+    width: 100%;
+}
+
+.cells {
+    padding: 0;
+    justify-content: center;
+    flex: 1 1 0px;
+}
+
+.nav_link {
+    background-color: var(--secondary);
+    text-decoration: none;
+    color: var(--background);
+
+    padding: 10px;
+    width: 100%;
+    justify-content: center;
+}
+
+.nav_link:hover {
+    background-color: var(--accent);
+}
+
+.headlines {
+    overflow: hidden;
+    background-color: var(--primary);
+}
+
+#breaking {
+    padding: 5px;
+    white-space: nowrap;
+    background-color: var(--secondary);
+    z-index: 1;
+}
+
+.headline_text {
+    white-space: nowrap;
+    margin: 0;
+    padding: 3px;
+    width: auto;
+    flex: 1;
+
+    -moz-transform: translateX(50%);
+    -webkit-transform: translateX(50%);
+    transform: translateX(50%);
+  
+    -moz-animation: scroll-text 30s linear infinite;
+    -webkit-animation: scroll-text 30s linear infinite;
+    animation: scroll-text 30s linear infinite;
+}
+
+.main {
+    /* width: 100%; */
+    flex-direction: row;
+
+    border: 2px solid var(--secondary);
+}
+
+.left, .right {
+    min-width: 15%;
+    max-width: 15%;
+    width: 15%;
+    padding: 5px;
+    border: 2px solid var(--secondary);
+    flex-direction: column;
+}
+
+.right {
+    background-color: var(--secondary);
+    padding: 0;
+}
+
+.content {
+    width: auto;
+    flex: 1;
+
+    text-decoration: none;
+    padding: 20px;
+    border: 2px solid var(--secondary);
+    flex-direction: column;
+    white-space: pre-line;
+}
+
+.footer {
+    align-self: flex-end;
+    justify-content: center;
+    align-items: center;
+
+    height: 40px;
+    margin-top: auto;
+    margin-bottom: 0;
+}
+
+form#create {
+    flex-direction: column;
+}
+
+.heading_content_group {
+    flex-direction: row;
+}
+
+.content_groups {
+    flex-direction: column;
+}
+
+/* for Firefox */
+@-moz-keyframes scroll-text {
+    from { -moz-transform: translateX(50%); }
+    to { -moz-transform: translateX(50%); }
+}
+
+/* for Chrome */
+@-webkit-keyframes scroll-text {
+    from { -webkit-transform: translateX(50%); }
+    to { -webkit-transform: translateX(50%); }
+}
+
+@keyframes scroll-text {
+    from {
+        -moz-transform: translateX(50%);
+        -webkit-transform: translateX(50%);
+        transform: translateX(50%);
+    }
+    to {
+        -moz-transform: translateX(-100%);
+        -webkit-transform: translateX(-100%);
+        transform: translateX(-100%);
+    }
+}

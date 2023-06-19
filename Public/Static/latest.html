@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" href="/style_minor.css">
+    <link rel="stylesheet" href="/style_mobile.css">
+    <title>The Daily Valhalla</title>
+</head>
+<body>
+
+    <div class="header">
+        <div class="logo">The Daily Valhalla</div>
+        <div class="icons">
+            <a href="www.instagram.com/thedailyvalhalla" class="social_link"><img src="https://seeklogo.com/images/I/instagram-logo-A807AD378B-seeklogo.com.png" alt="instagram-logo" class="social_icons"></a>
+            <a href="www.instagram.com/thedailyvalhalla" class="social_link"><img src="https://seeklogo.com/images/I/instagram-logo-A807AD378B-seeklogo.com.png" alt="instagram-logo" class="social_icons"></a>
+            <a href="www.instagram.com/thedailyvalhalla" class="social_link"><img src="https://seeklogo.com/images/I/instagram-logo-A807AD378B-seeklogo.com.png" alt="instagram-logo" class="social_icons"></a>
+        </div>
+    </div>
+
+    <div class="navigation">
+        <div class="cells"><a href="/home" class="nav_link">Home</a></div>
+        <div class="cells"><a href="/latest" class="nav_link">Latest</a></div>
+        <div class="cells"><a href="/stories" class="nav_link">Stories</a></div>
+        <div class="cells"><a href="/topics/international" class="nav_link">International</a></div>
+        <div class="cells"><a href="/topics/politics" class="nav_link">Politics</a></div>
+    </div>
+
+    <div class="headlines">
+        <div id="breaking">Headlines</div>
+        <div class="headline_text" id="headlines">
+            Stand by...
+        </div>
+    </div>
+
+    <div class="main">
+
+        <div class="left">
+            <div class="box" id="top_writers">
+            </div>
+        </div>
+
+        <div class="content">
+
+            <div id="latest_posts">
+
+            </div>
+
+        </div>
+
+        <div class="right" id="related">
+        </div>
+
+    </div>
+
+    <div class="footer">
+        Made by The AM
+    </div>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="/script.js"></script>
+    <script>
+        const socket = io();
+        getRelatedPosts(socket);
+        loadHome(socket);
+        latestPosts(socket);
+    </script>
+
+</body>
+</html>

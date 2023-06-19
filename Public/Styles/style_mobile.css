@@ -1,0 +1,128 @@
+@media only screen and (max-width: 940px) {
+
+    .cells {
+        font-size: 13px;
+    }
+
+    .nav_link {
+        padding: 5px;
+    }
+
+    .main {
+        flex-direction: column;
+        flex: 1;
+        width: auto;
+        padding: 0;
+    }
+
+    .left {
+        display: none;
+    }
+
+    .content {
+        margin: auto;
+        margin-top: 50px;
+        margin-bottom: 50px;
+        max-width: none;
+        flex: 1 0 0;
+        width: auto;
+    }
+
+    .article_thumbnail {
+        width: 100%;
+    }
+
+    .anchor_collection {
+        margin-bottom: 30px;
+    }
+
+    .right {
+        max-width: none;
+        margin-top: 50px;
+
+        flex-direction: row;
+
+        width: auto;
+        height: auto;
+
+        overflow-x: scroll;
+    }
+
+    .related_posts {
+        min-width: 250px;
+        width: 80px;
+        flex-basis: 80px;
+        margin-right: 20px;
+    }
+
+    .gallery {
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .std_input {
+        width: 80%;
+        margin: auto;
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+
+    .buttons_in_a_form {
+        flex-direction: column;
+        width: auto;
+    }
+
+    #add_field, .submit {
+        width: 70%;
+        margin: auto;
+        margin-top: 20px;
+        padding: 5px;
+        text-align: center;
+        justify-content: center;
+    }
+
+    .heading_content_group {
+        flex-direction: column;
+        border: 1px solid var(--secondary);
+        border-radius: 20px;
+    }
+
+    .input_content {
+        flex: 0 0 100px;
+        width: 80%;
+        align-content: start !important;
+    }
+
+    #remove_field {
+        margin: auto;
+        margin-bottom: 10px;
+
+        border-radius: 50%;
+        border: none;
+
+        width: 30px;
+        height: 30px;
+
+        justify-content: center;
+        align-items: center;
+
+        font-size: 15px;
+        color: azure;
+        background-color: #ff6961;
+    }
+
+    .latest_post_preview {
+        display: none;
+    }
+
+    .latest_post_title {
+        font-size: 15px;
+    }
+
+    .latest_post_thumbnail {
+        width: 100px;
+
+        height: 100px;
+    }
+}

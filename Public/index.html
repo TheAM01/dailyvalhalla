@@ -29,24 +29,14 @@
 
     <div class="headlines">
         <div id="breaking">Headlines</div>
-        <div class="headline_text">
-            New Study Shows Positive Effects of Exercise on Mental Health <span class="empty_wide_space">-</span>
-            How to Start Exercising: A Beginner's Guide <span class="empty_wide_space">-</span>
-            The Role of Nutrition in Mental Health <span class="empty_wide_space">-</span>
-            Mindfulness and Meditation: Techniques for a Calmer Mind <span class="empty_wide_space">-</span>
-            Exploring the Benefits of Outdoor Activities on Mental Health <span class="empty_wide_space">-</span>
-            Exercise and Workplace Productivity: A Winning Combination
+        <div class="headline_text" id="headlines">
+            Stand by...
         </div>
     </div>
 
     <div class="main">
         <div class="left">
-            <div class="box">
-                <div class="box_heading">Top writers today</div>
-                <div class="box_content">Mueed - 12 posts <span class="notification_disk"> </span></div>
-                <div class="box_content">The AM - 9 posts <span class="notification_disk"> </span></div>
-                <div class="box_content">Abdul - 8 posts <span class="notification_disk"> </span></div>
-                <div class="box_content">Ayem - 8 posts <span class="notification_disk"> </span></div>
+            <div class="box" id="top_writers">
             </div>
         </div>
 
@@ -68,31 +58,6 @@
         </div>
 
         <div class="right" id="related">
-            <a class="related_posts" href="#">
-                <img src="https://placehold.co/60x60" alt="" class="related_posts_thumbnail">
-                <span class="related_posts_title">New Research Reveals Surprising Benefits of Gardening for Stress Relief</span>
-                <span class="related_posts_author">Mueed</span>
-            </a>
-            <a class="related_posts" href="#">
-                <img src="https://placehold.co/70x70" alt="" class="related_posts_thumbnail">
-                <span class="related_posts_title">Breakthrough Study Shows the Power of Music in Boosting Brain Function</span>
-                <span class="related_posts_author">Mueed</span>
-            </a>
-            <a class="related_posts" href="#">
-                <img src="https://images.unsplash.com/photo-1608085021978-6981f6993f9c?w=500&q=60" alt="" class="related_posts_thumbnail">
-                <span class="related_posts_title">Discover the Healing Effects of Art Therapy on Mental Health</span>
-                <span class="related_posts_author">TheAM</span>
-            </a>
-            <a class="related_posts" href="#">
-                <img src="https://images.unsplash.com/photo-1515787366009-7cbdd2dc587b?w=500&q=60" alt="" class="related_posts_thumbnail">
-                <span class="related_posts_title">The Link Between Nature and Happiness: Exploring Ecotherapy</span>
-                <span class="related_posts_author">Mueed</span>
-            </a>
-            <a class="related_posts" href="#">
-                <img src="https://images.unsplash.com/photo-1599009434802-ca1dd09895e7?w=500&q=60" alt="" class="related_posts_thumbnail">
-                <span class="related_posts_title">Innovative Technology Offers Hope for Treating Chronic Pain</span>
-                <span class="related_posts_author">Abdul</span>
-            </a>
         </div>
     </div>
 
@@ -103,8 +68,9 @@
     <script src="/socket.io/socket.io.js"></script>
     <script src="/script.js"></script>
     <script>
-    const socket = io();
-    getRelatedPosts(socket)
+        const socket = io();
+        getRelatedPosts(socket);
+        loadHome(socket);
     </script>
 
 </body>

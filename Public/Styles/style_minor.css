@@ -167,9 +167,8 @@
 
 .std_input {
     width: auto;
-    margin-top: 20px;
     border: 1px solid var(--accent);
-    border-radius: 2px;
+    border-radius: 5px;
     padding: 5px;
     transition: 0.2s;
     background-color: var(--background);
@@ -183,4 +182,109 @@
 .input_content {
     width: auto;
     flex: 1;
+    height: 60px;
+    margin-right: 10px;
+    margin-left: 10px;
+}
+
+.buttons_in_a_form {
+    width: 70%;
+    margin-top: 20px;
+}
+
+#add_field, .submit {
+    border: 1px solid var(--accent);
+    background: var(--primary);
+    padding: 15px;
+    border-radius: 2px;
+    transition: 0.1s;
+    width: 300px;
+    cursor: pointer;
+    text-align: center;
+    font-size: 15px;
+    margin-right: 20px;
+}
+
+#add_field:hover, .submit:hover {
+    border-radius: 25px;
+    background-color: var(--accent);
+    color: #fff;
+}
+
+.heading_content_group {
+    padding: 10px 0 10px 0;
+}
+
+#remove_field {
+    margin: auto;
+    margin-right: 10px;
+
+    border-radius: 50px;
+    border: none;
+
+    width: 50px;
+    height: 50px;
+
+
+    justify-content: center;
+    align-items: center;
+
+    font-size: 15px;
+    color: azure;
+    background-color: #ff6961;
+}
+
+.i1 {
+    margin-bottom: 10px;
+    margin-top: 10px;
+    margin-right: 10px;
+}
+
+#latest_posts {
+    flex-direction: column;
+}
+
+.latest_post_parent {
+    border-bottom: 1px solid black;
+    height: 170px;
+    padding: 10px;
+    color: black;
+    text-decoration: none;
+    transition: 0.2s;
+}
+
+.latest_post_parent:hover {
+    background-color: var(--accent);
+    border-radius: 20px;
+}
+
+.latest_post_thumbnail {
+    width: 150px;
+    aspect-ratio: 1/1;
+    height: auto;
+}
+
+.latest_post_thumbnail_parent {
+    padding: 5px;
+}
+
+.latest_post_details {
+    flex-direction: column;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.latest_post_title {
+    font-size: 19px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.latest_post_author {
+    margin-bottom: 10px;
+}
+
+.latest_post_preview {
+    color: #7f7f7f;
+    font-size: 12px;
 }

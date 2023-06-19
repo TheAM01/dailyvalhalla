@@ -29,24 +29,14 @@
 
     <div class="headlines">
         <div id="breaking">Headlines</div>
-        <div class="headline_text">
-            New Study Shows Positive Effects of Exercise on Mental Health <span class="empty_wide_space">-</span>
-            How to Start Exercising: A Beginner's Guide <span class="empty_wide_space">-</span>
-            The Role of Nutrition in Mental Health <span class="empty_wide_space">-</span>
-            Mindfulness and Meditation: Techniques for a Calmer Mind <span class="empty_wide_space">-</span>
-            Exploring the Benefits of Outdoor Activities on Mental Health <span class="empty_wide_space">-</span>
-            Exercise and Workplace Productivity: A Winning Combination
+        <div class="headline_text" id="headlines">
+        
         </div>
     </div>
 
     <div class="main">
         <div class="left">
-            <div class="box">
-                <div class="box_heading">Top writers today</div>
-                <div class="box_content">Mueed - 12 posts <span class="notification_disk"> </span></div>
-                <div class="box_content">The AM - 9 posts <span class="notification_disk"> </span></div>
-                <div class="box_content">Abdul - 8 posts <span class="notification_disk"> </span></div>
-                <div class="box_content">Ayem - 8 posts <span class="notification_disk"> </span></div>
+            <div class="box" id="top_writers">
             </div>
         </div>
 
@@ -58,30 +48,31 @@
 
             <form action="/create" method="post" name="create" id="create">
 
-                <input type="text" id="post_title" name="title" placeholder="Post title" class="std_input">
+                <input type="text" id="post_title" name="title" placeholder="Post title" class="std_input i1" required >
                 
-                <input type="text" id="post_thumbnail" name="thumbnail" placeholder="Thumbnail absolute URL" class="std_input">
+                <input type="url" id="post_thumbnail" name="thumbnail" placeholder="Thumbnail absolute URL" class="std_input i1" required >
 
                 <div class="content_groups" id="content_groups">
 
                     <div class="heading_content_group">
-                        <input type="text" id="post_content_heading_1" name="heading_1" placeholder="Heading" class="std_input input_heading">
-                        <input type="text" id="post_content_content_1" name="content_1" placeholder="Content" class="std_input input_content">
+                        <input type="text" id="post_content_heading_1" name="heading_1" placeholder="Heading" class="std_input input_heading" required >
+                        <input type="text" id="post_content_content_1" name="content_1" placeholder="Content" class="std_input input_content" required >
                     </div>
 
                 </div>
 
-                <button type="button" id="add_field" onclick="addNewHeading()">Add new heading</button>
+                <div class="buttons_in_a_form">
+                    <button type="button" id="add_field" onclick="addNewHeading()">Add new heading</button>
+                    <input type="submit" value="Submit" class="submit">
+                </div>
 
-                <input type="submit" value="Submit">
+
 
             </form>
 
             
         </div>
-        <div class="right">
-            
-        </div>
+
     </div>
 
     <div class="footer">
@@ -92,6 +83,7 @@
     <script src="/script.js"></script>
     <script>
         const socket = io();
+        loadHome(socket)
     </script>
 
 </body>

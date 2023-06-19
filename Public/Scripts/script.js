@@ -61,17 +61,14 @@ function buildPost(socket) {
     })
 }
 
-//  <a class="related_posts" href="#">
-    //  <img src="https://images.unsplash.com/photo-1599009434802-ca1dd09895e7?w=500&q=60" alt="" class="related_posts_thumbnail">
-    //  <span class="related_posts_title">Innovative Technology Offers Hope for Treating Chronic Pain</span>
-    //  <span class="related_posts_author">Abdul</span>
-//  </a>
 
 function getRelatedPosts(socket) {
     socket.emit("related_posts");
     socket.on("related_posts", (data) => {
 
         const related = document.getElementById("related");
+        const headlines = document.getElementById("headlines");
+        const h = [];
 
         data.forEach(i => {
             const anchor = document.createElement("a");
@@ -86,6 +83,7 @@ function getRelatedPosts(socket) {
             const title = document.createElement("span");
             title.setAttribute("class", "related_posts_title");
             title.innerHTML = i.title;
+            h.push(i.title)
 
             const author = document.createElement("span");
             author.setAttribute("class", "related_posts_author");
@@ -95,11 +93,14 @@ function getRelatedPosts(socket) {
             anchor.appendChild(title);
             anchor.appendChild(author);
 
-            related.appendChild(anchor)
+            related.appendChild(anchor);
 
-        })
+        });
+
+        headlines.innerHTML = h.join("<span class=\"empty_wide_space\">-</span>");
     })
 }
+
 
 function addNewHeading() {
     
@@ -115,7 +116,8 @@ function addNewHeading() {
     heading.setAttribute("id", `post_content_heading_${am + 1}`);
     heading.setAttribute("name", `heading_${am+1}`);
     heading.setAttribute("placeholder", "Heading");
-    heading.setAttribute("class", "std_input input_heading")
+    heading.setAttribute("class", "std_input input_heading");
+    heading.setAttribute("required", "");
 
 
     const content = document.createElement("input");
@@ -124,6 +126,7 @@ function addNewHeading() {
     content.setAttribute("name", `content_${am+1}`);
     content.setAttribute("placeholder", "Content");
     content.setAttribute("class", "std_input input_content")
+    content.setAttribute("required", "");
 
     const button = document.createElement("button");
     button.setAttribute("type", "button");
@@ -138,6 +141,101 @@ function addNewHeading() {
     form.appendChild(div);
 
 }
+
+function loadHome(socket) {
+
+    socket.emit("load_home");
+    socket.on("load_home", data => {
+
+        const writers = document.getElementById("top_writers");
+
+        const heading = document.createElement('div');
+        heading.setAttribute("class", "box_heading");
+        heading.innerHTML = "Top writers today";
+
+        writers.appendChild(heading)
+
+        data.forEach(u => {
+
+            const boxContent = document.createElement("div");
+            boxContent.setAttribute("class", "box_content");
+            boxContent.innerHTML = `${u.name} - ${u.posts.length} posts <span class="notification_disk">`;
+
+            writers.appendChild(boxContent);
+
+        });
+    })
+}
+
+function latestPosts(socket) {
+    socket.emit("latest");
+
+    socket.on("latest", (data) => {
+
+        const order = Object.keys(data).sort((a, b) =>  a - b);
+        const sorted = []
+
+        order.forEach(o => {
+            sorted[o] = data[o];
+        });
+
+        console.log(sorted)
+
+        Object.values(sorted).reverse().forEach(p => {
+
+            const parent = document.createElement("a");
+            parent.setAttribute("class", "latest_post_parent");
+            parent.setAttribute("href", `${p.url}`)
+    
+            const thumbnailParent = document.createElement("div");
+            thumbnailParent.setAttribute("class", "latest_post_thumbnail_parent");
+    
+            const thumbnail = document.createElement("img");
+            thumbnail.setAttribute("class", "latest_post_thumbnail");
+            thumbnail.setAttribute("src", p.thumbnail);
+    
+            const details = document.createElement("div");
+            details.setAttribute("class", "latest_post_details");
+            
+            const title = document.createElement("div");
+            title.setAttribute("class", "latest_post_title");
+            title.innerHTML = p.title
+    
+            const author = document.createElement("div");
+            author.setAttribute("class", "latest_post_author");
+            author.innerHTML = p.author;
+
+            const preview = document.createElement("div");
+            preview.setAttribute("class", "latest_post_preview");
+            preview.innerHTML = p.headings.join('\n');
+            
+    
+            details.appendChild(title);
+            details.appendChild(author);
+            details.appendChild(preview)
+    
+            thumbnailParent.appendChild(thumbnail);
+    
+            parent.appendChild(thumbnailParent);
+            parent.appendChild(details);
+    
+            document.getElementById("latest_posts").appendChild(parent);
+
+        })
+
+    });
+}
+
+// <div class="latest_post_parent">
+//     <div class="latest_post_thumbnail_parent">
+//         <img src="" alt="" class="latest_post_thumbnail">
+//     </div>
+//     <div class="latest_post_details">
+//         <div class="latest_post_title"></div>
+//         <div class="latest_post_author"></div>
+//     </div>
+// </div>
+
 
 function removeHeading(element) {
     const className = element.parentElement.className;
